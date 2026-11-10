@@ -1,7 +1,15 @@
 {
   "siteName": "",
   "announcement": "",
-  "links": [],
+  "links": [
+    {
+      "id": "mwazu2v7k5o89",
+      "url": "https://solara.kiafinans.se/",
+      "label": "https://solara.openmouth.com.ar/ https://solara.hdm1.net/ https://solara.xzolx.o",
+      "status": "green",
+      "added": 1794333496579
+    }
+  ],
   "admin": {
     "salt": "vRU0A63y5SlL8CpjGZKkZg==",
     "verifier": "UC8Ae5p8h5dzSIgvu2Zv1acKh7KkeJgzQjOZyvmjIYk="
