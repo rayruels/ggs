@@ -208,6 +208,77 @@
   /* battery */
   .bat-ok{color:var(--green)} .bat-mid{color:var(--yellow)} .bat-low{color:var(--red)}
 
+  /* ================= links page ================= */
+  .grid.links{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+  .lnk{display:flex;align-items:center;gap:11px;padding:10px 8px 10px 12px;border-radius:6px;background:var(--mantle);border:1px solid var(--s0)}
+  .lnk:hover{border-color:var(--s1)}
+  .lnk .t{flex:1;min-width:0}
+  .lnk h3{font-size:12.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lnk small{display:block;color:var(--ov);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lnk a.ib{text-decoration:none}
+  .dot{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
+  .dot.green{background:var(--green)} .dot.yellow{background:var(--yellow)} .dot.red{background:var(--red)}
+  .legend{display:inline-flex;gap:12px;align-items:center}
+  .legend span{display:inline-flex;gap:6px;align-items:center}
+  .wallmsg{margin:12px 16px 0;padding:8px 12px;border-left:3px solid var(--yellow);border-radius:0 6px 6px 0;
+           background:color-mix(in srgb,var(--yellow) 8%,transparent);font-size:12.5px;white-space:pre-wrap;word-break:break-word}
+  .wallmsg b{color:var(--yellow);font-weight:700;margin-right:6px}
+
+  /* ================= admin (root) window ================= */
+  #admin{position:fixed;z-index:35;top:50px;bottom:8px;left:50%;transform:translateX(-50%);width:min(980px,calc(100% - 16px));
+         display:flex;flex-direction:column;overflow:hidden;background:var(--base);animation:popin .18s cubic-bezier(.2,.9,.3,1)}
+  #admin::before{background:linear-gradient(45deg,var(--red),var(--peach))!important}
+  .abody{flex:1;overflow:auto;padding:16px}
+  .dirty{color:var(--yellow);font-size:12px;margin-right:8px;white-space:nowrap}
+  .ib.pub{background:var(--acc);color:var(--crust);font-weight:700}
+  .ib.pub:disabled{background:var(--s0);color:var(--ov);cursor:default}
+  .lock{max-width:400px;margin:10vh auto 0}
+  .lock .ln{color:var(--sub);margin-bottom:10px}
+  .lock .ain{margin-bottom:8px}
+  .lock .abtn{width:100%;margin-top:4px}
+  .lock.bad .ain{border-color:var(--red);animation:shake .3s}
+  .ain{width:100%;height:34px;border-radius:6px;border:1px solid var(--s1);background:var(--mantle);color:var(--text);font:inherit;font-size:12.5px;padding:0 10px;outline:none}
+  .ain:focus{border-color:var(--acc)}
+  textarea.ain{height:auto;padding:8px 10px;resize:vertical;line-height:1.55}
+  .abtn{height:32px;padding:0 14px;border-radius:6px;background:var(--acc);color:var(--crust);font-weight:700;font-size:12px;white-space:nowrap}
+  .abtn:disabled{opacity:.5;cursor:default}
+  .abtn.ghost{background:none;color:var(--sub);border:1px solid var(--s1)}
+  .abtn.ghost:hover{color:var(--text);background:var(--s0)}
+  .abtn.danger{background:none;color:var(--red);border:1px solid color-mix(in srgb,var(--red) 45%,transparent)}
+  .atabs{display:flex;gap:2px;margin-bottom:14px;border-bottom:1px solid var(--s0)}
+  .atabs button{padding:6px 12px;color:var(--ov);border-bottom:2px solid transparent;margin-bottom:-1px}
+  .atabs button:hover{color:var(--sub)}
+  .atabs button.on{color:var(--text);border-color:var(--acc)}
+  .acard{border:1px solid var(--s0);border-radius:6px;padding:12px;margin-bottom:12px;background:var(--mantle)}
+  .acard h4{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:10px}
+  .arow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .arow .ain{flex:1;min-width:150px;width:auto}
+  .arow + .arow{margin-top:8px}
+  .arow h4{margin:0}
+  .picker{display:inline-flex;gap:4px}
+  .pk{width:30px;height:30px;border-radius:6px;display:grid;place-items:center;border:1px solid var(--s1)}
+  .pk:hover{background:var(--s0)}
+  .pk.on{border-color:var(--text);background:var(--s0)}
+  .lrow{display:grid;grid-template-columns:16px 16px minmax(0,1fr) minmax(0,1.6fr) 26px;gap:8px;align-items:center;padding:4px 0;border-top:1px solid var(--s0)}
+  .lrow:first-child{border-top:0}
+  .lrow input[type=checkbox],.sel input[type=checkbox]{accent-color:var(--acc);width:14px;height:14px}
+  button.dot{width:14px;height:14px;cursor:pointer}
+  button.dot:hover{outline:2px solid var(--s1);outline-offset:2px}
+  .lin{background:none;border:1px solid transparent;border-radius:4px;color:var(--text);font:inherit;font-size:12px;padding:3px 6px;outline:none;min-width:0;width:100%}
+  .lin:hover{border-color:var(--s0)}
+  .lin:focus{border-color:var(--acc);background:var(--base)}
+  .lin.u{color:var(--sub)}
+  .sel{font-size:12px;color:var(--sub);padding:6px 0 8px;border-bottom:1px solid var(--s0);margin-bottom:4px}
+  .sel label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+  .ahelp{color:var(--ov);font-size:12px;line-height:1.65;margin-top:10px}
+  .ahelp a{color:var(--blue)}
+  .ahelp b{color:var(--sub);font-weight:500}
+  .amsg{min-height:18px;font-size:12px;margin-top:6px;color:var(--ov);white-space:pre-wrap}
+  .amsg.e{color:var(--red)} .amsg.ok{color:var(--green)}
+  .count-pill{color:var(--ov);font-weight:400}
+
+  [hidden]{display:none!important}
+
   /* ================= responsive ================= */
   @media (max-width:1000px){
     .desk{grid-template-columns:minmax(0,1fr)}
@@ -228,6 +299,9 @@
     .opts{padding:2px 12px 10px}
     #player{inset:46px 6px 6px}
     .ib .lbl{display:none}
+    .lrow{grid-template-columns:16px 16px minmax(0,1fr) 26px}
+    .lrow .u{grid-column:3/4;grid-row:2}
+    #admin{top:46px;bottom:6px}
   }
 </style>
 </head>
@@ -253,6 +327,7 @@
       <button data-tab="all" class="on" title="All games">1</button>
       <button data-tab="fav" title="Favorites">2</button>
       <button data-tab="recent" title="Recently played">3</button>
+      <button data-tab="links" title="Links">4</button>
     </div>
     <div class="center"><div class="mod"><span id="wintitle">kitty</span></div></div>
     <div class="mod" id="bat" title="Battery" hidden>
@@ -296,7 +371,7 @@
       <div class="wtitle"><b>keybinds</b><span class="grow"></span>hyprland.conf</div>
       <div class="keys">
         <span class="kk">/</span><span>search</span>
-        <span class="kk">1 2 3</span><span>workspace</span>
+        <span class="kk">1 2 3 4</span><span>workspace</span>
         <span class="kk">r</span><span>random game</span>
         <span class="kk">t</span><span>next theme</span>
         <span class="kk">f</span><span>fullscreen</span>
@@ -307,16 +382,15 @@
 
   <section class="win term" id="term">
     <div class="wtitle"><b>kitty</b><span id="wsName">~/games</span><span class="grow"></span><span id="ses"></span></div>
+    <div class="wallmsg" id="wall" hidden><b>broadcast</b><span id="wallText"></span></div>
     <label class="prompt">
       <span class="ps1"><span class="u"><span id="psUser">you</span>@arcade</span> <span class="p" id="cwd">~/games</span> <span class="arr">❯</span></span>
       <span class="cmd"><b>find</b> . -iname</span>
       <span class="qwrap"><input id="q" type="text" placeholder="search…" autocomplete="off" spellcheck="false"></span>
     </label>
     <div class="opts">
-      <span>sort</span>
-      <span id="sorts">
-        <button class="flag" data-sort="az">name</button><button class="flag" data-sort="za">reverse</button><button class="flag" data-sort="popular">played</button>
-      </span>
+      <span id="sortWrap"><span>sort </span><span id="sorts"><button class="flag" data-sort="az">name</button><button class="flag" data-sort="za">reverse</button><button class="flag" data-sort="popular">played</button></span></span>
+      <span class="legend" id="legend" hidden><span><i class="dot green"></i>working</span><span><i class="dot yellow"></i>iffy</span><span><i class="dot red"></i>down</span></span>
       <span id="chips"></span>
       <span class="grow"></span>
       <span class="count" id="count"></span>
@@ -337,6 +411,19 @@
     <button class="ib x" id="close" title="Close (Esc)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
   <div class="stage" id="stage"><div class="boot" id="boot"></div></div>
+</section>
+
+<!-- ============ admin (hidden: type "sudo su" in the search box and press enter) ============ -->
+<section class="win" id="admin" hidden>
+  <div class="pbar">
+    <div class="ttl"><span class="c-red">#</span> <b>sudo</b> &nbsp;root@arcade</div>
+    <span class="dirty" id="aDirty"></span>
+    <button class="ib" id="aDownload" title="Download site.json to upload yourself" hidden>download</button>
+    <button class="ib pub" id="aPublish" hidden disabled>publish</button>
+    <button class="ib" id="aLock" title="Lock" hidden>lock</button>
+    <button class="ib x" id="aClose" title="Close (Esc)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="abody" id="aBody"></div>
 </section>
 
 <!-- ============ greeter / sign up ============ -->
@@ -374,6 +461,9 @@ const CONFIG = {
   // {"path":..., "title":..., "tags":[...], "thumb":...} for custom names.
   list: "https://cdn.jsdelivr.net/gh/rayruels/ggs@main/games.json",
   githubFallback: true,         // if games.json is missing, ask api.github.com instead
+  // Your site repo. site.json in it holds the links, announcement, site name and admin passcode check.
+  // The admin panel saves straight to it with your GitHub token.
+  site: { user: "rayruels", repo: "ggs", branch: "main", file: "site.json" },
 };
 /* ===================================================================== */
 
@@ -624,7 +714,7 @@ function icoHTML(g){
   return esc(g.title[0] || "?");
 }
 
-const WS = { all:"~/games", fav:"~/games/favorites", recent:"~/.cache/recent" };
+const WS = { all:"~/games", fav:"~/games/favorites", recent:"~/.cache/recent", links:"~/links" };
 function render(){
   $("#pkgs").textContent = games.length;
   document.querySelectorAll("#ws button").forEach(b => b.classList.toggle("on", b.dataset.tab === state.tab));
@@ -633,6 +723,10 @@ function render(){
   $("#cwd").textContent = WS[state.tab];
   $("#wsName").textContent = " " + WS[state.tab];
   if(!current) $("#wintitle").textContent = `kitty  ${WS[state.tab]}`;
+  $("#sortWrap").hidden = $("#random").hidden = state.tab === "links";
+  $("#legend").hidden = state.tab !== "links";
+  if(state.tab === "links") return renderLinks();
+  $("#grid").classList.remove("links");
 
   const all = visible();
   $("#count").innerHTML = `<b>${all.length}</b> found`;
@@ -762,6 +856,8 @@ const setTab = t => { state.tab = t; if(current) closePlayer(); refresh(); };
 
 /* ---------- events ---------- */
 $("#grid").addEventListener("click", e => {
+  const cp = e.target.closest("[data-copy]");
+  if(cp){ copyText(cp.dataset.copy); return; }
   const f = e.target.closest("[data-fav]");
   if(f){ e.stopPropagation(); toggleFav(f.dataset.fav); return; }
   const c = e.target.closest(".tile");
@@ -771,7 +867,7 @@ $("#top").addEventListener("click", e => { const p = e.target.closest(".proc[dat
 $("#ws").addEventListener("click", e => { const b = e.target.closest("button"); if(b) setTab(b.dataset.tab); });
 $("#sorts").addEventListener("click", e => { const b = e.target.closest(".flag"); if(b){ state.sort = b.dataset.sort; store.set("sort", state.sort); refresh(); } });
 $("#chips").addEventListener("click", e => { const c = e.target.closest(".flag"); if(c){ state.tag = state.tag === c.dataset.tag ? null : c.dataset.tag; refresh(); } });
-$("#q").addEventListener("input", e => { state.q = e.target.value.trim(); if(state.q) state.tab = "all"; refresh(); });
+$("#q").addEventListener("input", e => { state.q = e.target.value.trim(); if(state.q && state.tab !== "links") state.tab = "all"; refresh(); });
 $("#random").addEventListener("click", randomGame);
 $("#theme").addEventListener("click", () => {
   const t = THEMES[(THEMES.indexOf(document.documentElement.dataset.theme) + 1) % THEMES.length];
@@ -789,6 +885,7 @@ addEventListener("keydown", e => {
   const typing = /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName);
   if(e.metaKey || e.ctrlKey || e.altKey) return;
   if(!$("#greeter").hidden){ if(e.key === "Escape" && user) closeGreeter(); return; }
+  if(!$("#admin").hidden){ if(e.key === "Escape" && !typing) closeAdmin(); else if(e.key === "Escape") document.activeElement.blur(); return; }
   if(e.key === "Escape"){
     if(typing){ document.activeElement.blur(); return; }
     if(current && !document.fullscreenElement) back();
@@ -800,8 +897,482 @@ addEventListener("keydown", e => {
   else if(k === "f" && current) $("#fs").click();
   else if(k === "r") randomGame();
   else if(k === "t") $("#theme").click();
-  else if(["1","2","3"].includes(k)) setTab(["all","fav","recent"][+k-1]);
+  else if(["1","2","3","4"].includes(k)) setTab(["all","fav","recent","links"][+k-1]);
 });
+
+/* =====================================================================
+   LINKS + ADMIN PANEL
+   site.json (in CONFIG.site's repo) holds { siteName, announcement, links[], admin }.
+   Everyone's site reads it from jsDelivr. The hidden admin panel — type "sudo su" in the
+   search box and press enter — edits it and commits it to GitHub with your token.
+   The passcode check is a PBKDF2 hash in site.json; your token is stored only on your
+   device, encrypted with a key made from your passcode.
+   ===================================================================== */
+const SITE = CONFIG.site;
+const SITE_URL = `https://cdn.jsdelivr.net/gh/${SITE.user}/${SITE.repo}@${SITE.branch}/${SITE.file}`;
+const DEFAULT_NAME = CONFIG.siteName;
+const STATUS = { green:"working", yellow:"iffy", red:"down" };
+const NEXT = { green:"yellow", yellow:"red", red:"green" };
+const STATUS_WORDS = { g:"green", green:"green", working:"green", up:"green", ok:"green",
+                       y:"yellow", yellow:"yellow", iffy:"yellow", slow:"yellow",
+                       r:"red", red:"red", down:"red", dead:"red", blocked:"red" };
+let siteData = { siteName:"", announcement:"", links:[], admin:null };
+const clone = o => JSON.parse(JSON.stringify(o));
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+function safeUrl(u){
+  u = String(u || "").trim();
+  if(!u) return null;
+  try{
+    const x = new URL(/^[a-z][\w+.-]*:/i.test(u) ? u : "https://" + u);
+    return /^https?:$/.test(x.protocol) && x.hostname.includes(".") ? x.href : null;
+  }catch{ return null; }
+}
+const hostOf = u => { try{ return new URL(u).hostname.replace(/^www\./, ""); }catch{ return u; } };
+
+async function loadSite(){
+  try{
+    const r = await fetch(SITE_URL, {cache:"no-cache"});
+    if(r.ok){ const d = await r.json(); siteData = { ...siteData, ...d, links: Array.isArray(d.links) ? d.links : [] }; }
+  }catch{}
+  applySite();
+}
+function applySite(){
+  CONFIG.siteName = siteData.siteName || DEFAULT_NAME;
+  $("#siteName").textContent = CONFIG.siteName;
+  if(!current) document.title = CONFIG.siteName;
+  $("#wall").hidden = !siteData.announcement;
+  $("#wallText").textContent = siteData.announcement || "";
+  if(state.tab === "links") render();
+}
+
+/* ---------- public links page (workspace 4) ---------- */
+function renderLinks(){
+  const grid = $("#grid");
+  grid.classList.add("links");
+  const q = state.q.toLowerCase();
+  const order = { green:0, yellow:1, red:2 };
+  const list = siteData.links
+    .filter(l => !q || `${l.label} ${l.url}`.toLowerCase().includes(q))
+    .sort((a, b) => (order[a.status] ?? 3) - (order[b.status] ?? 3));
+  $("#count").innerHTML = `<b>${list.length}</b> link${list.length === 1 ? "" : "s"}`;
+  if(!list.length){
+    grid.innerHTML = `<div class="empty">${siteData.links.length
+      ? `<span class="e">find: nothing matches "${esc(state.q)}"</span>`
+      : `<span class="e">ls: links: empty</span><br>no links yet.`}</div>`;
+    return;
+  }
+  grid.innerHTML = list.map(l => {
+    const href = safeUrl(l.url) || "#";
+    return `<div class="lnk">
+      <span class="dot ${esc(l.status)}" title="${STATUS[l.status] || ""}"></span>
+      <div class="t"><h3 title="${esc(l.label || hostOf(l.url))}">${esc(l.label || hostOf(l.url))}</h3><small>${esc(l.url)}</small></div>
+      <button class="ib" data-copy="${esc(href)}" title="Copy link">copy</button>
+      <a class="ib" href="${esc(href)}" target="_blank" rel="noopener noreferrer" title="Open in new tab">open</a>
+    </div>`;
+  }).join("");
+}
+async function copyText(t){
+  try{ await navigator.clipboard.writeText(t); }
+  catch{ const a = document.createElement("textarea"); a.value = t; document.body.append(a); a.select(); document.execCommand("copy"); a.remove(); }
+  notify("copied", t);
+}
+
+/* ---------- crypto ---------- */
+const te = new TextEncoder(), td = new TextDecoder();
+const toB64 = u8 => { let s = ""; for(let i = 0; i < u8.length; i += 0x8000) s += String.fromCharCode(...u8.subarray(i, i + 0x8000)); return btoa(s); };
+const fromB64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+async function derive(pass, saltB64){
+  const k = await crypto.subtle.importKey("raw", te.encode(pass), "PBKDF2", false, ["deriveBits"]);
+  const bits = new Uint8Array(await crypto.subtle.deriveBits({ name:"PBKDF2", salt:fromB64(saltB64), iterations:210000, hash:"SHA-256" }, k, 512));
+  return { verifier: toB64(bits.slice(0, 32)),
+           key: await crypto.subtle.importKey("raw", bits.slice(32), "AES-GCM", false, ["encrypt", "decrypt"]) };
+}
+const TOKEN_KEY = `admintok:${SITE.user}/${SITE.repo}`;
+async function sealToken(tok, key){
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const ct = new Uint8Array(await crypto.subtle.encrypt({ name:"AES-GCM", iv }, key, te.encode(tok)));
+  store.set(TOKEN_KEY, { iv:toB64(iv), ct:toB64(ct) });
+}
+async function openToken(key){
+  const s = store.get(TOKEN_KEY, null);
+  if(!s) return null;
+  try{ return td.decode(await crypto.subtle.decrypt({ name:"AES-GCM", iv:fromB64(s.iv) }, key, fromB64(s.ct))); }
+  catch{ return null; }
+}
+const forgetToken = () => { try{ localStorage.removeItem("arcade:" + TOKEN_KEY); }catch{} };
+const sameStr = (a, b) => a.length === b.length && [...a].reduce((x, c, i) => x | (c.charCodeAt(0) ^ b.charCodeAt(i)), 0) === 0;
+
+/* ---------- GitHub ---------- */
+const GH = `https://api.github.com/repos/${SITE.user}/${SITE.repo}`;
+async function gh(path, opt = {}, token = A.token){
+  let r;
+  try{
+    r = await fetch(GH + path, { ...opt, cache:"no-store", headers:{
+      Authorization:`Bearer ${token}`, Accept:"application/vnd.github+json",
+      ...(opt.body ? { "Content-Type":"application/json" } : {}) } });
+  }catch{
+    throw new Error("Can't reach GitHub. It's probably blocked on this network.\nPublish from somewhere else, or press download and upload site.json to the repo yourself.");
+  }
+  if(r.status === 401) throw new Error("GitHub rejected the token (wrong or expired).");
+  if(r.status === 403) throw new Error("This token isn't allowed to change the repo. It needs Contents: Read and write.");
+  return r;
+}
+async function checkToken(tok){
+  const r = await gh("", {}, tok);
+  if(r.status === 404) throw new Error(`This token can't see ${SITE.user}/${SITE.repo}. Give it access to that repo.`);
+  if(!r.ok) throw new Error(`GitHub said ${r.status}`);
+  const j = await r.json();
+  if(!j.permissions?.push) throw new Error("This token can read the repo but can't write to it. It needs Contents: Read and write.");
+}
+async function publishData(data, msg = "Update site from admin panel"){
+  const path = `/contents/${SITE.file}`;
+  const g = await gh(`${path}?ref=${encodeURIComponent(SITE.branch)}`);
+  let sha;
+  if(g.ok) sha = (await g.json()).sha;
+  else if(g.status !== 404) throw new Error(`GitHub said ${g.status}`);
+  const body = { message: msg, branch: SITE.branch, content: toB64(te.encode(JSON.stringify(data, null, 2) + "\n")) };
+  if(sha) body.sha = sha;
+  const r = await gh(path, { method:"PUT", body: JSON.stringify(body) });
+  if(!r.ok){ const j = await r.json().catch(() => ({})); throw new Error(`GitHub said ${r.status}${j.message ? ": " + j.message : ""}`); }
+  // ask jsDelivr to drop its cached copy so everyone gets the new one sooner
+  fetch(`https://purge.jsdelivr.net/gh/${SITE.user}/${SITE.repo}@${SITE.branch}/${SITE.file}`).catch(() => {});
+  siteData = clone(data);
+  applySite();
+}
+
+/* ---------- admin state + views ---------- */
+const A = { view:"lock", key:null, token:null, draft:null, tab:"links", sel:new Set(), pick:{ one:"green", bulk:"green" }, filter:"", fails:0, until:0, busy:false };
+const isDirty = () => !!A.draft && JSON.stringify(A.draft) !== JSON.stringify(siteData);
+
+function openAdmin(){
+  if(current) closePlayer();
+  if(!A.token) A.view = siteData.admin ? "lock" : "setup";
+  $("#admin").hidden = false;
+  renderAdmin();
+}
+function closeAdmin(){ $("#admin").hidden = true; }
+function lockAdmin(){
+  if(isDirty() && !confirm("You have unpublished changes. Lock anyway and lose them?")) return;
+  Object.assign(A, { key:null, token:null, draft:null, view:"lock" }); A.sel.clear();
+  renderAdmin();
+}
+
+const TOKEN_HELP = `<div class="ahelp">
+  To make a token: on GitHub open <b>Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</b>
+  (<a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">direct link</a>).
+  Repository access: <b>Only select repositories → ${esc(SITE.repo)}</b>. Permissions: <b>Contents → Read and write</b>.<br>
+  The token is saved only on this device, encrypted with your passcode. It never goes into the site's files.</div>`;
+const picker = which => `<span class="picker">${["green","yellow","red"].map(s =>
+  `<button type="button" class="pk ${A.pick[which] === s ? "on" : ""}" data-pick="${which}" data-s="${s}" title="${STATUS[s]}"><span class="dot ${s}"></span></button>`).join("")}</span>`;
+
+function renderAdmin(){
+  const panel = A.view === "panel";
+  ["#aDownload", "#aPublish", "#aLock"].forEach(id => $(id).hidden = !panel);
+  const b = $("#aBody");
+  if(A.view === "lock"){
+    b.innerHTML = `<form class="lock" data-form="unlock">
+      <div class="ln"><span class="c-red">[sudo]</span> password for root:</div>
+      <input class="ain" type="password" id="aPass" autocomplete="current-password">
+      <div class="amsg" id="aMsg"></div></form>`;
+  } else if(A.view === "setup"){
+    b.innerHTML = `<form class="lock" data-form="setup">
+      <div class="ln">first-time setup</div>
+      <input class="ain" type="password" id="sP1" placeholder="choose a passcode" autocomplete="new-password">
+      <input class="ain" type="password" id="sP2" placeholder="type it again" autocomplete="new-password">
+      <input class="ain" type="password" id="sTok" placeholder="GitHub token (github_pat_…)" autocomplete="off">
+      <button class="abtn">set up</button>
+      <div class="amsg" id="aMsg"></div>${TOKEN_HELP}</form>`;
+  } else if(A.view === "token"){
+    b.innerHTML = `<form class="lock" data-form="token">
+      <div class="ln">passcode ok. this device doesn't have your GitHub token yet.</div>
+      <input class="ain" type="password" id="tTok" placeholder="GitHub token (github_pat_…)" autocomplete="off">
+      <button class="abtn">save token</button>
+      <div class="amsg" id="aMsg"></div>${TOKEN_HELP}</form>`;
+  } else {
+    b.innerHTML = `<div class="atabs">${["links","site","security"].map(t =>
+        `<button type="button" data-atab="${t}" class="${A.tab === t ? "on" : ""}">${t}</button>`).join("")}</div>
+      <div class="amsg" id="pMsg" style="margin:-6px 0 8px"></div>
+      ${A.tab === "links" ? linksPane() : A.tab === "site" ? sitePane() : securityPane()}`;
+    if(A.tab === "links") refreshList();
+  }
+  updateDirty();
+  setTimeout(() => b.querySelector("input")?.focus(), 30);
+}
+function msg(t, cls = ""){ const m = $("#aMsg") || $("#pMsg"); if(m){ m.textContent = t; m.className = "amsg " + cls; } }
+function pmsg(t, cls = ""){ const m = $("#pMsg"); if(m){ m.textContent = t; m.className = "amsg " + cls; } }
+function updateDirty(){
+  const d = isDirty();
+  $("#aDirty").textContent = d ? "● unpublished changes" : "";
+  $("#aPublish").disabled = !d || A.busy;
+}
+
+function linksPane(){
+  return `<div class="acard"><h4>add a link</h4>
+      <form class="arow" data-form="addone">
+        <input class="ain" id="oUrl" placeholder="https://example.com" autocomplete="off" style="flex:2">
+        <input class="ain" id="oLabel" placeholder="label (optional)" autocomplete="off">
+        ${picker("one")}<button class="abtn">add</button>
+      </form></div>
+    <div class="acard"><h4>add in bulk</h4>
+      <textarea class="ain" id="bText" rows="5" spellcheck="false" placeholder="one link per line. any of these work:
+https://example.com
+https://example.com | My label
+https://example.com | My label | yellow"></textarea>
+      <div class="arow"><span style="color:var(--sub);font-size:12px">default</span>${picker("bulk")}<span class="grow"></span>
+        <span id="bInfo" style="color:var(--ov);font-size:12px"></span><button class="abtn" type="button" data-act="bulk">add all</button></div></div>
+    <div class="acard">
+      <div class="arow"><h4>links <span class="count-pill" id="lCount"></span></h4><span class="grow"></span>
+        <input class="ain" id="lFilter" placeholder="filter…" value="${esc(A.filter)}" style="flex:0 1 220px;min-width:120px;height:30px"></div>
+      <div class="arow sel"><label><input type="checkbox" id="lAll"> all</label><span id="selN">0 selected</span><span class="grow"></span>
+        <span>set</span>${["green","yellow","red"].map(s => `<button type="button" class="pk" data-act="setsel" data-s="${s}" title="Mark selected ${STATUS[s]}"><span class="dot ${s}"></span></button>`).join("")}
+        <button type="button" class="abtn danger" data-act="delsel">delete</button></div>
+      <div id="lList"></div>
+      <div class="ahelp">click a dot to change it: green = working, yellow = iffy, red = down. edit a label or link by clicking it.</div></div>`;
+}
+function sitePane(){
+  const d = A.draft;
+  return `<div class="acard"><h4>site name</h4>
+      <input class="ain" id="sName" data-site="siteName" value="${esc(d.siteName || "")}" placeholder="${esc(DEFAULT_NAME)}" maxlength="24"></div>
+    <div class="acard"><h4>announcement</h4>
+      <textarea class="ain" id="sAnn" data-site="announcement" rows="3" maxlength="400" placeholder="shows at the top of the site for everyone. leave empty to hide.">${esc(d.announcement || "")}</textarea></div>
+    <div class="ahelp">changes go live for everyone when you press publish. jsDelivr can take a few minutes to show them.</div>`;
+}
+function securityPane(){
+  return `<div class="acard"><h4>change passcode</h4>
+      <form class="arow" data-form="chpass">
+        <input class="ain" type="password" id="cOld" placeholder="current passcode" autocomplete="current-password">
+        <input class="ain" type="password" id="cNew" placeholder="new passcode" autocomplete="new-password">
+        <input class="ain" type="password" id="cNew2" placeholder="new passcode again" autocomplete="new-password">
+        <button class="abtn">change</button></form>
+      <div class="ahelp">this publishes right away, along with any other unpublished changes.</div></div>
+    <div class="acard"><h4>GitHub token</h4>
+      <form class="arow" data-form="retoken">
+        <input class="ain" type="password" id="rTok" placeholder="new token (github_pat_…)" autocomplete="off">
+        <button class="abtn">replace</button></form></div>
+    <div class="acard"><h4>this device</h4>
+      <div class="arow"><button type="button" class="abtn danger" data-act="forget">forget token on this device</button></div>
+      <div class="ahelp">the passcode keeps people out of this page, and your token is what actually lets it change the site.
+        anyone who reads the site's code can find this page, so use a passcode that isn't easy to guess.</div></div>`;
+}
+
+function refreshList(){
+  const f = A.filter.toLowerCase();
+  const all = A.draft.links;
+  const rows = all.filter(l => !f || `${l.label} ${l.url}`.toLowerCase().includes(f));
+  A.sel = new Set([...A.sel].filter(id => all.some(l => l.id === id)));
+  $("#lCount").textContent = `(${all.length})`;
+  $("#lList").innerHTML = !all.length ? `<div class="ahelp">no links yet. add some above.</div>`
+    : !rows.length ? `<div class="ahelp">nothing matches "${esc(A.filter)}"</div>`
+    : rows.map(l => `<div class="lrow" data-id="${l.id}">
+        <input type="checkbox" class="lsel" ${A.sel.has(l.id) ? "checked" : ""}>
+        <button type="button" class="dot ${l.status}" data-act="cycle" title="${STATUS[l.status]}. click to change"></button>
+        <input class="lin" data-f="label" value="${esc(l.label || "")}" placeholder="${esc(hostOf(l.url))}">
+        <input class="lin u" data-f="url" value="${esc(l.url)}">
+        <button type="button" class="ib x" data-act="del" title="Delete">×</button></div>`).join("");
+  updateSel();
+  updateDirty();
+}
+function updateSel(){
+  const n = A.sel.size;
+  if($("#selN")) $("#selN").textContent = `${n} selected`;
+  const boxes = [...document.querySelectorAll("#lList .lsel")];
+  if($("#lAll")) $("#lAll").checked = boxes.length > 0 && boxes.every(b => b.checked);
+}
+
+function addLinks(items){
+  let added = 0, dup = 0, bad = 0;
+  const have = new Set(A.draft.links.map(l => l.url));
+  for(const it of items){
+    const u = safeUrl(it.url);
+    if(!u){ bad++; continue; }
+    if(have.has(u)){ dup++; continue; }
+    have.add(u);
+    A.draft.links.push({ id:uid(), url:u, label:String(it.label || "").trim().slice(0, 80), status: STATUS[it.status] ? it.status : "green", added:Date.now() });
+    added++;
+  }
+  const parts = [`added ${added}`];
+  if(dup) parts.push(`${dup} already there`);
+  if(bad) parts.push(`${bad} not valid links`);
+  pmsg(parts.join(" · "), added ? "ok" : "e");
+  refreshList();
+  return added;
+}
+function parseBulk(text){
+  return text.split(/\r?\n/).map(l => l.trim()).filter(Boolean).map(line => {
+    let parts = line.split(/\s*[|\t]\s*/);
+    if(parts.length === 1){ const m = line.match(/^(\S+)\s+(.+)$/); if(m) parts = [m[1], m[2]]; }   // "url label"
+    let [url, label = "", st] = parts;
+    if(st === undefined && STATUS_WORDS[label.toLowerCase()]){ st = label; label = ""; }          // "url | red"
+    return { url, label, status: STATUS_WORDS[String(st || "").toLowerCase()] || A.pick.bulk };
+  });
+}
+
+async function doPublish(data, label){
+  A.busy = true; updateDirty();
+  const btn = $("#aPublish"); btn.textContent = "publishing…";
+  try{
+    await publishData(data);
+    pmsg(`${label || "published"}. live for everyone in a few minutes (jsDelivr cache).`, "ok");
+    notify("published", "site.json updated");
+    return true;
+  }catch(e){ pmsg(e.message, "e"); msg(e.message, "e"); return false; }
+  finally{ A.busy = false; btn.textContent = "publish"; updateDirty(); }
+}
+function downloadJSON(){
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(A.draft, null, 2) + "\n"], { type:"application/json" }));
+  a.download = SITE.file;
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  pmsg(`downloaded ${SITE.file}. upload it to ${SITE.user}/${SITE.repo} on GitHub to make it live.`, "ok");
+}
+const enterPanel = () => { A.view = "panel"; A.draft = clone(siteData); renderAdmin(); };
+function shakeForm(){ const f = $("#aBody form"); if(!f) return; f.classList.remove("bad"); void f.offsetWidth; f.classList.add("bad"); }
+
+/* ---------- admin events ---------- */
+$("#aClose").addEventListener("click", closeAdmin);
+$("#aLock").addEventListener("click", lockAdmin);
+$("#aDownload").addEventListener("click", downloadJSON);
+$("#aPublish").addEventListener("click", () => isDirty() && doPublish(A.draft));
+
+$("#aBody").addEventListener("submit", async e => {
+  e.preventDefault();
+  const form = e.target.dataset.form;
+  if(A.busy) return;
+  A.busy = true;
+  try{
+    if(form === "unlock"){
+      if(Date.now() < A.until) return msg(`too many tries. wait ${Math.ceil((A.until - Date.now()) / 1000)}s`, "e");
+      const pass = $("#aPass").value;
+      if(!pass) return;
+      msg("checking…");
+      const d = await derive(pass, siteData.admin.salt);
+      if(!sameStr(d.verifier, siteData.admin.verifier)){
+        if(++A.fails >= 5){ A.fails = 0; A.until = Date.now() + 30000; }
+        $("#aPass").value = ""; shakeForm();
+        return msg("sorry, try again.", "e");
+      }
+      A.fails = 0; A.key = d.key;
+      A.token = await openToken(d.key);
+      if(!A.token){ A.view = "token"; return renderAdmin(); }
+      enterPanel();
+    }
+    else if(form === "setup"){
+      const p1 = $("#sP1").value, p2 = $("#sP2").value, tok = $("#sTok").value.trim();
+      if(p1.length < 6){ shakeForm(); return msg("passcode needs at least 6 characters", "e"); }
+      if(p1 !== p2){ shakeForm(); return msg("the two passcodes don't match", "e"); }
+      if(!tok) return msg("paste your GitHub token", "e");
+      msg("checking token…"); await checkToken(tok);
+      const salt = toB64(crypto.getRandomValues(new Uint8Array(16)));
+      const d = await derive(p1, salt);
+      A.token = tok;
+      msg("saving to GitHub…");
+      await publishData({ ...clone(siteData), admin:{ salt, verifier:d.verifier } }, "Set up admin panel");
+      await sealToken(tok, d.key); A.key = d.key;
+      enterPanel();
+      notify("admin panel ready", "type sudo su in the search box to come back");
+    }
+    else if(form === "token"){
+      const tok = $("#tTok").value.trim();
+      if(!tok) return;
+      msg("checking token…"); await checkToken(tok);
+      await sealToken(tok, A.key); A.token = tok;
+      enterPanel();
+    }
+    else if(form === "addone"){
+      if(addLinks([{ url:$("#oUrl").value, label:$("#oLabel").value, status:A.pick.one }])){ $("#oUrl").value = ""; $("#oLabel").value = ""; $("#oUrl").focus(); }
+    }
+    else if(form === "chpass"){
+      const old = $("#cOld").value, n1 = $("#cNew").value, n2 = $("#cNew2").value;
+      if(!sameStr((await derive(old, siteData.admin.salt)).verifier, siteData.admin.verifier)) return pmsg("current passcode is wrong", "e");
+      if(n1.length < 6) return pmsg("new passcode needs at least 6 characters", "e");
+      if(n1 !== n2) return pmsg("the new passcodes don't match", "e");
+      const salt = toB64(crypto.getRandomValues(new Uint8Array(16)));
+      const d = await derive(n1, salt);
+      const prevAdmin = A.draft.admin;
+      A.draft.admin = { salt, verifier:d.verifier };
+      A.busy = false;
+      if(await doPublish(A.draft, "passcode changed")){ await sealToken(A.token, d.key); A.key = d.key; ["#cOld","#cNew","#cNew2"].forEach(i => $(i).value = ""); }
+      else A.draft.admin = prevAdmin;
+    }
+    else if(form === "retoken"){
+      const tok = $("#rTok").value.trim();
+      if(!tok) return;
+      pmsg("checking token…"); await checkToken(tok);
+      await sealToken(tok, A.key); A.token = tok; $("#rTok").value = "";
+      pmsg("token replaced", "ok");
+    }
+  }catch(err){ msg(err.message, "e"); }
+  finally{ A.busy = false; updateDirty(); }
+});
+
+$("#aBody").addEventListener("click", e => {
+  const t = e.target.closest("[data-atab]");
+  if(t){ A.tab = t.dataset.atab; return renderAdmin(); }
+  const pk = e.target.closest("[data-pick]");
+  if(pk){ A.pick[pk.dataset.pick] = pk.dataset.s; pk.parentElement.querySelectorAll(".pk").forEach(b => b.classList.toggle("on", b === pk)); return; }
+  const act = e.target.closest("[data-act]")?.dataset.act;
+  if(!act) return;
+  const row = e.target.closest(".lrow");
+  const link = row && A.draft.links.find(l => l.id === row.dataset.id);
+  if(act === "cycle" && link){ link.status = NEXT[link.status] || "green"; refreshList(); }
+  else if(act === "del" && link){ A.draft.links = A.draft.links.filter(l => l !== link); refreshList(); }
+  else if(act === "bulk"){
+    const items = parseBulk($("#bText").value);
+    if(!items.length) return pmsg("paste some links first", "e");
+    if(addLinks(items)){ $("#bText").value = ""; $("#bInfo").textContent = ""; }
+  }
+  else if(act === "setsel"){
+    if(!A.sel.size) return pmsg("select some links first", "e");
+    A.draft.links.forEach(l => { if(A.sel.has(l.id)) l.status = e.target.closest("[data-s]").dataset.s; });
+    refreshList();
+  }
+  else if(act === "delsel"){
+    if(!A.sel.size) return pmsg("select some links first", "e");
+    if(!confirm(`Delete ${A.sel.size} link${A.sel.size === 1 ? "" : "s"}?`)) return;
+    A.draft.links = A.draft.links.filter(l => !A.sel.has(l.id)); A.sel.clear(); refreshList();
+  }
+  else if(act === "forget"){
+    if(!confirm("Remove your GitHub token from this device? You'll need to paste it again next time.")) return;
+    forgetToken(); A.token = null; lockAdmin();
+  }
+});
+$("#aBody").addEventListener("change", e => {
+  const el = e.target;
+  if(el.classList.contains("lsel")){
+    const id = el.closest(".lrow").dataset.id;
+    el.checked ? A.sel.add(id) : A.sel.delete(id); return updateSel();
+  }
+  if(el.id === "lAll"){
+    document.querySelectorAll("#lList .lrow").forEach(r => el.checked ? A.sel.add(r.dataset.id) : A.sel.delete(r.dataset.id));
+    return refreshList();
+  }
+  if(el.classList.contains("lin")){
+    const link = A.draft.links.find(l => l.id === el.closest(".lrow").dataset.id);
+    if(!link) return;
+    if(el.dataset.f === "url"){
+      const u = safeUrl(el.value);
+      if(!u){ el.value = link.url; return pmsg("that's not a valid link", "e"); }
+      link.url = el.value = u;
+    } else link.label = el.value.trim().slice(0, 80);
+    updateDirty();
+  }
+});
+$("#aBody").addEventListener("input", e => {
+  const el = e.target;
+  if(el.dataset.site){ A.draft[el.dataset.site] = el.value; updateDirty(); }
+  else if(el.id === "lFilter"){ A.filter = el.value; refreshList(); }
+  else if(el.id === "bText"){ const n = parseBulk(el.value).length; $("#bInfo").textContent = n ? `${n} line${n === 1 ? "" : "s"}` : ""; }
+});
+
+// hidden way in: type "sudo su" in the search box and press enter
+$("#q").addEventListener("keydown", e => {
+  if(e.key === "Enter" && /^sudo(\s+su)?$/i.test(e.target.value.trim())){
+    e.preventDefault(); e.target.value = ""; state.q = ""; refresh(); e.target.blur(); openAdmin();
+  }
+});
+addEventListener("beforeunload", e => { if(isDirty()){ e.preventDefault(); e.returnValue = ""; } });
+
 
 /* ---------- boot ---------- */
 document.title = CONFIG.siteName;
@@ -810,6 +1381,7 @@ setTheme(store.get("theme","mocha"));
 tick(); setInterval(tick, 10000);
 applyUser();
 if(!user) openGreeter();
+loadSite();
 $("#grid").innerHTML = Array.from({length:24}, () => `<div class="skel"></div>`).join("");
 loadGames()
   .then(list => { games = list; renderChips(); render(); renderTop(); renderFF(); route(); })
