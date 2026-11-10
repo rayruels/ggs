@@ -16,7 +16,8 @@
 <script><![CDATA[
   const site = document.getElementById("site");
   const msg = document.getElementById("msg");
-  fetch(new URL("index.html", location.href))
+  // "no-cache" = always ask jsDelivr if index.html changed (jsDelivr tells browsers to keep files 7 days)
+  fetch(new URL("index.html", location.href), { cache: "no-cache" })
     .then(r => { if(!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
     .then(html => {
       site.srcdoc = html;
