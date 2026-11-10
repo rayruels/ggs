@@ -1,0 +1,15 @@
+<!doctype html>
+<!--
+  jsDelivr serves .html files as plain text, so you can't open index.html straight from the CDN.
+  This tiny file pulls the menu from jsDelivr and runs it. Host THIS file anywhere that serves
+  HTML (GitHub Pages, Google Sites embed, Netlify, or just double-click it on your computer).
+  Edit the URL below to point at your repo.
+-->
+<meta charset="utf-8"><title>Loading…</title>
+<body style="background:#08090d">
+<script>
+fetch("https://cdn.jsdelivr.net/gh/rayruels/ggs@main/index.html")
+  .then(r => r.text())
+  .then(html => { document.open(); document.write(html); document.close(); })
+  .catch(() => document.body.innerHTML = '<p style="color:#fff;font-family:sans-serif;padding:40px">Could not load the site.</p>');
+</script>
