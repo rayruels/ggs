@@ -14,13 +14,13 @@
     --accent:#0a84ff; --mb:28px; --dock:54px; --icon:76px;
   }
   [data-mode="dark"]{
-    --win:rgba(30,30,34,.78); --win2:rgba(40,40,46,.62); --side:rgba(44,44,50,.5); --solid:#1f1f23;
+    --win:rgba(30,30,32,.72); --win2:rgba(44,44,48,.72); --side:rgba(40,40,44,.42); --solid:#1e1e20;
     --text:#f5f5f7; --sub:rgba(235,235,245,.62); --faint:rgba(235,235,245,.35);
     --line:rgba(255,255,255,.09); --hover:rgba(255,255,255,.07); --field:rgba(255,255,255,.07);
     --bar:rgba(18,18,22,.35); --dockbg:rgba(40,40,48,.32); --menu:rgba(38,38,44,.82); --shadow:rgba(0,0,0,.5);
   }
   [data-mode="light"]{
-    --win:rgba(248,248,250,.82); --win2:rgba(255,255,255,.6); --side:rgba(232,232,238,.62); --solid:#f4f4f7;
+    --win:rgba(246,246,248,.78); --win2:rgba(255,255,255,.72); --side:rgba(236,236,240,.5); --solid:#ffffff;
     --text:#1d1d1f; --sub:rgba(60,60,67,.66); --faint:rgba(60,60,67,.38);
     --line:rgba(0,0,0,.09); --hover:rgba(0,0,0,.05); --field:rgba(0,0,0,.055);
     --bar:rgba(255,255,255,.4); --dockbg:rgba(255,255,255,.32); --menu:rgba(246,246,248,.86); --shadow:rgba(0,0,0,.28);
@@ -131,12 +131,12 @@
   .wg-note p{font-size:14px;line-height:1.45;margin-top:8px;white-space:pre-wrap;word-break:break-word}
 
   /* ================= app icons ================= */
-  .ai{--sz:var(--icon);width:var(--sz);height:var(--sz);border-radius:23%;position:relative;flex:none;display:grid;place-items:center;overflow:hidden;
-      background:linear-gradient(155deg,var(--a),var(--b));
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -2px 6px rgba(0,0,0,.12),0 2px 6px rgba(0,0,0,.25),0 0 0 .5px rgba(0,0,0,.2)}
-  .ai::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0) 48%);pointer-events:none}
-  .ai svg{width:52%;height:52%;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;color:#fff;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.25))}
-  .ai span{font-size:calc(var(--sz) * .38);font-weight:800;color:#fff;letter-spacing:-.03em;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+  .ai{--sz:var(--icon);width:var(--sz);height:var(--sz);border-radius:22.5%;position:relative;flex:none;display:grid;place-items:center;overflow:hidden;
+      background:linear-gradient(180deg,color-mix(in srgb,var(--a) 86%,#fff),var(--a));background-repeat:no-repeat;
+      box-shadow:0 1px 2px rgba(0,0,0,.16),0 4px 12px rgba(0,0,0,.12),inset 0 0 0 .5px rgba(0,0,0,.14)}
+  .ai.cover{background-color:#2a2a2e}
+  .ai svg{width:50%;height:50%;stroke:rgba(255,255,255,.94);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;color:rgba(255,255,255,.94)}
+  .ai span{font-size:calc(var(--sz) * .36);font-weight:700;color:rgba(255,255,255,.94);letter-spacing:-.02em}
   .ai img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
 
   /* ================= windows ================= */
@@ -189,17 +189,18 @@
   .side .it.on{background:color-mix(in srgb,var(--text) 12%,transparent)}
   .side .it svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
   .side .it .n{margin-left:auto;font-size:11.5px;color:var(--faint)}
-  .main{display:flex;flex-direction:column;min-width:0;min-height:0}
+  .main{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--solid)}
+  .window > .scroll,.window > .tb + .scroll{background:var(--solid)}
   .scroll{flex:1;overflow:auto;min-height:0}
   .status{height:26px;flex:none;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:11.5px;color:var(--sub)}
 
   /* games launcher */
-  .ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(calc(var(--icon) + 34px),1fr));gap:20px 6px;padding:22px 18px 30px}
+  .ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(calc(var(--icon) + 42px),1fr));gap:24px 8px;padding:26px 22px 34px}
   .gi{display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px 4px;border-radius:10px;position:relative;cursor:pointer}
-  .gi:hover{background:var(--hover)}
+  .gi:hover .ai{filter:brightness(1.07)}
   .gi:active .ai{transform:scale(.94)}
   .gi .ai{transition:transform .12s}
-  .gi .nm{font-size:12px;text-align:center;line-height:1.3;max-width:100%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+  .gi .nm{font-size:12px;text-align:center;line-height:1.3;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)}
   .gi .fv{position:absolute;top:4px;right:calc(50% - var(--icon)/2 - 12px);width:24px;height:24px;border-radius:50%;display:grid;place-items:center;
           background:var(--menu);box-shadow:0 1px 4px rgba(0,0,0,.3);opacity:0;transition:.12s;z-index:2;cursor:pointer}
   .gi:hover .fv,.gi .fv.on{opacity:1}
@@ -478,7 +479,7 @@
 <div id="windows">
 
   <!-- games launcher -->
-  <section class="window" id="w-games" data-title="Games" data-w="980" data-h="640" hidden>
+  <section class="window" id="w-games" data-title="Games" data-w="1060" data-h="700" hidden>
     <div class="split">
       <aside class="side">
         <div class="sh" data-drag><div class="lights"><button class="l close"><svg viewBox="0 0 10 10"><path d="M2.5 2.5l5 5M7.5 2.5l-5 5"/></svg></button><button class="l min"><svg viewBox="0 0 10 10"><path d="M2 5h6"/></svg></button><button class="l zoom"><svg viewBox="0 0 10 10"><path d="M5 2v6M2 5h6"/></svg></button></div></div>
@@ -495,7 +496,7 @@
           <h1 id="glTitle">All Games</h1>
           <span class="grow"></span>
           <select class="sel" id="glSort" title="Sort">
-            <option value="name">Name</option><option value="played">Most Played</option><option value="recent">Recently Played</option>
+            <option value="featured">Featured</option><option value="name">Name</option><option value="played">Most Played</option><option value="recent">Recently Played</option>
           </select>
           <label class="search"><svg><use href="#g-search"/></svg><input id="glSearch" placeholder="Search" autocomplete="off" spellcheck="false"></label>
         </div>
@@ -622,7 +623,8 @@ let favs = new Set(store.get("favs", []));
 let recent = store.get("recent", []);
 let plays = store.get("plays", {});
 let user = store.get("user", null);          // { name, created, avatar }
-let prefs = Object.assign({ mode:"auto", accent:"auto", wall:"sakura", dockSize:54, mag:true, autohide:false, widgets:true, iconSize:76 }, store.get("prefs", {}));
+let prefs = Object.assign({ mode:"auto", accent:"auto", wall:"blossom", dockSize:54, mag:true, autohide:false, widgets:false, iconSize:76 }, store.get("prefs", {}));
+if(prefs.v !== 2){ prefs.v = 2; prefs.widgets = false; }   // new design: clean desktop by default
 let customWalls = store.get("walls", []);    // [{ id, name, src }]
 let battery = null;
 let current = null;                           // game playing in the player window
@@ -632,144 +634,29 @@ const savePrefs = () => store.set("prefs", prefs);
 /* =====================================================================
    WALLPAPERS — original anime-style scenes drawn as SVG
    ===================================================================== */
-function rng(seed){ return () => { seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
-const F = n => Math.round(n * 10) / 10;
-const lg = (id, stops, x2 = 0, y2 = 1) => `<linearGradient id="${id}" x1="0" y1="0" x2="${x2}" y2="${y2}">${stops.map(([o,c,a=1]) => `<stop offset="${o}" stop-color="${c}" stop-opacity="${a}"/>`).join("")}</linearGradient>`;
-const rg = (id, stops) => `<radialGradient id="${id}">${stops.map(([o,c,a=1]) => `<stop offset="${o}" stop-color="${c}" stop-opacity="${a}"/>`).join("")}</radialGradient>`;
-const svgDoc = (defs, body) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice"><defs>${defs}</defs>${body}</svg>`;
-const bez = (p, t) => { const u = 1 - t; return [0,1].map(i => u*u*u*p[0][i] + 3*u*u*t*p[1][i] + 3*u*t*t*p[2][i] + t*t*t*p[3][i]); };
-
-function wpSakura(){
-  const r = rng(11); let b = "";
-  const defs = lg("sky", [[0,"#86c5ff"],[.45,"#c9e1ff"],[.75,"#ffd5e3"],[1,"#ffe7dd"]]) + rg("sun", [[0,"#fffdf3"],[.3,"#fff2dc",.85],[1,"#ffeedd",0]])
-    + lg("gr", [[0,"#ffc3d6"],[1,"#ee8fb0"]]) + lg("haze", [[0,"#fff",0],[1,"#fff",.6]]);
-  b += `<rect width="1920" height="1080" fill="url(#sky)"/><circle cx="1430" cy="290" r="340" fill="url(#sun)"/><circle cx="1430" cy="290" r="68" fill="#fffaf0"/>`;
-  for(let i = 0; i < 6; i++){ const x = 200 + r()*1500, y = 120 + r()*260; b += `<ellipse cx="${F(x)}" cy="${F(y)}" rx="${F(90+r()*120)}" ry="${F(16+r()*10)}" fill="#fff" opacity="${F(.45+r()*.3)}"/>`; }
-  b += `<path d="M540 810 L925 470 Q960 442 995 470 L1380 810Z" fill="#9db3e2"/>`;
-  b += `<path d="M862 526 L925 470 Q960 442 995 470 L1058 526 L1028 518 L1008 542 L985 514 L960 548 L936 514 L914 540 L893 518Z" fill="#f6f9ff"/>`;
-  b += `<rect y="600" width="1920" height="240" fill="url(#haze)"/>`;
-  for(let layer = 0; layer < 2; layer++){
-    const base = 770 + layer*75, cols = layer ? ["#f29bbb","#f5abc6","#f8bdd2"] : ["#f8c7d8","#fbd4e1","#f6bccf"];
-    const yAt = x => base - 30*Math.sin(x/260 + layer*2) - 18*Math.sin(x/97);
-    let d = `M0 ${F(yAt(0))}`; for(let x = 0; x <= 1920; x += 40) d += ` L${x} ${F(yAt(x))}`;
-    b += `<path d="${d} L1920 1080 L0 1080Z" fill="${layer ? "#f0a0bd" : "#f7c2d4"}"/>`;
-    for(let i = 0; i < 150; i++){ const x = r()*1940 - 10; b += `<circle cx="${F(x)}" cy="${F(yAt(x) + r()*18 - 4)}" r="${F(12+r()*26)}" fill="${cols[i%3]}" opacity="${F(.75+r()*.25)}"/>`; }
-  }
-  b += `<path d="M0 965 Q480 905 960 952 T1920 935 V1080 H0Z" fill="url(#gr)"/>`;
-  const branch = (P, w, n) => {
-    b += `<path d="M${P[0]} C${P[1]} ${P[2]} ${P[3]}" fill="none" stroke="#4a2a33" stroke-width="${w}" stroke-linecap="round"/>`;
-    for(let i = 0; i < n; i++){
-      const t = .2 + r()*.8, [x, y] = bez(P, t), a = r()*Math.PI*2, d = r()*w*2.6;
-      const cx = x + Math.cos(a)*d, cy = y + Math.sin(a)*d, rr = 7 + r()*11;
-      b += `<circle cx="${F(cx)}" cy="${F(cy)}" r="${F(rr)}" fill="${["#ffb6cf","#ff9fc1","#ffd0e1","#fff1f6"][i%4]}"/>`;
-      if(i % 3 === 0) b += `<circle cx="${F(cx)}" cy="${F(cy)}" r="${F(rr*.25)}" fill="#f2668f"/>`;
-    }
-  };
-  branch([[-40,60],[260,30],[520,210],[790,160]], 26, 170);
-  branch([[300,90],[360,200],[330,300],[430,380]], 12, 70);
-  branch([[560,170],[640,240],[700,330],[650,420]], 9, 50);
-  branch([[1970,30],[1760,40],[1650,150],[1470,170]], 22, 140);
-  branch([[1700,90],[1690,190],[1760,260],[1720,340]], 10, 55);
-  for(let i = 0; i < 110; i++){ b += `<ellipse cx="${F(r()*1920)}" cy="${F(r()*1080)}" rx="${F(5+r()*5)}" ry="${F(3+r()*2)}" transform="rotate(${F(r()*180)})" fill="#ffadc8" opacity="${F(.6+r()*.4)}"/>`; }
-  return svgDoc(defs, b);
-}
-function wpNeon(){
-  const r = rng(23); let b = "";
-  const defs = lg("sky", [[0,"#060217"],[.45,"#170a37"],[.7,"#45145a"],[.84,"#a72c6e"],[1,"#ff6a7a"]])
-    + rg("moon", [[0,"#ffe9f6",.9],[.4,"#ff9ad5",.25],[1,"#ff9ad5",0]]) + lg("gnd", [[0,"#0b0518"],[1,"#05020c"]])
-    + `<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`
-    + `<filter id="blur"><feGaussianBlur stdDeviation="14"/></filter>`;
-  b += `<rect width="1920" height="1080" fill="url(#sky)"/>`;
-  for(let i = 0; i < 260; i++) b += `<circle cx="${F(r()*1920)}" cy="${F(r()*620)}" r="${F(.6+r()*1.6)}" fill="#fff" opacity="${F(.3+r()*.7)}"/>`;
-  b += `<circle cx="1470" cy="240" r="260" fill="url(#moon)"/><circle cx="1470" cy="240" r="84" fill="#fff0f8"/><circle cx="1445" cy="220" r="14" fill="#f7d9ea"/><circle cx="1500" cy="270" r="9" fill="#f7d9ea"/>`;
-  let x = -20; while(x < 1940){ const w = 50 + r()*90, h = 200 + r()*260; b += `<rect x="${F(x)}" y="${F(870-h)}" width="${F(w)}" height="${F(h+10)}" fill="#2a1147"/>`; if(r() < .25) b += `<rect x="${F(x+w/2-1.5)}" y="${F(870-h-50)}" width="3" height="50" fill="#2a1147"/><circle cx="${F(x+w/2)}" cy="${F(870-h-52)}" r="3" fill="#ff4d6d" filter="url(#glow)"/>`; x += w + r()*10; }
-  const neon = ["#ff4fd8","#3ef4ff","#ffd23f","#7cff6b"];
-  x = -30; while(x < 1950){
-    const w = 80 + r()*120, h = 240 + r()*360, top = 900 - h;
-    b += `<rect x="${F(x)}" y="${F(top)}" width="${F(w)}" height="${F(h+20)}" fill="#120820"/>`;
-    for(let wy = top + 18; wy < 880; wy += 22) for(let wx = x + 10; wx < x + w - 12; wx += 15) if(r() < .26) b += `<rect x="${F(wx)}" y="${F(wy)}" width="7" height="11" fill="${["#ffd36e","#7ef9ff","#ff9ee8"][Math.floor(r()*3)]}" opacity="${F(.55+r()*.45)}"/>`;
-    if(r() < .35){ const c = neon[Math.floor(r()*4)], sx = x + w*.3, sh = 60 + r()*90, sy = top + 30 + r()*80;
-      b += `<rect x="${F(sx)}" y="${F(sy)}" width="22" height="${F(sh)}" rx="4" fill="none" stroke="${c}" stroke-width="4" filter="url(#glow)"/>`;
-      b += `<rect x="${F(sx-4)}" y="935" width="30" height="${F(sh*.9)}" fill="${c}" opacity=".35" filter="url(#blur)"/>`; }
-    x += w + 6 + r()*14;
-  }
-  b += `<rect y="900" width="1920" height="180" fill="url(#gnd)" opacity=".92"/>`;
-  for(let i = 0; i < 40; i++) b += `<rect x="${F(r()*1920)}" y="${F(925+r()*140)}" width="${F(30+r()*120)}" height="2" fill="${neon[i%4]}" opacity="${F(.15+r()*.25)}"/>`;
-  return svgDoc(defs, b);
-}
-function wpSunset(){
-  const r = rng(5); let b = "";
-  const defs = lg("sky", [[0,"#1c0a44"],[.3,"#57196c"],[.5,"#b1386c"],[.62,"#ee6a5a"],[.7,"#ffa45c"]]) + lg("sun", [[0,"#fff6b0"],[.6,"#ffb15e"],[1,"#ff6f61"]])
-    + lg("sea", [[0,"#7b2d6b"],[.25,"#3b1752"],[1,"#100624"]])
-    + `<mask id="cut"><rect width="1920" height="1080" fill="#fff"/>${Array.from({length:9}, (_, i) => `<rect y="${640 + i*14 + i*i*1.6}" width="1920" height="${3 + i*1.4}" fill="#000"/>`).join("")}</mask>`;
-  b += `<rect width="1920" height="1080" fill="url(#sky)"/>`;
-  for(let i = 0; i < 90; i++) b += `<circle cx="${F(r()*1920)}" cy="${F(r()*330)}" r="${F(.6+r()*1.3)}" fill="#fff" opacity="${F(.3+r()*.6)}"/>`;
-  b += `<circle cx="960" cy="640" r="270" fill="url(#sun)" mask="url(#cut)"/>`;
-  for(let i = 0; i < 14; i++){ const y = 200 + r()*480, c = ["#ff8fb1","#c7579a","#ffb38a","#8d3a8f"][i%4]; b += `<ellipse cx="${F(r()*1920)}" cy="${F(y)}" rx="${F(180+r()*380)}" ry="${F(10+r()*22)}" fill="${c}" opacity="${F(.45+r()*.4)}"/>`; }
-  b += `<rect y="770" width="1920" height="310" fill="url(#sea)"/><rect y="768" width="1920" height="4" fill="#ffd28a" opacity=".7"/>`;
-  for(let i = 0; i < 46; i++){ const y = 776 + i*6.5 + i*i*.05, w = 520 - i*9 + r()*60; b += `<rect x="${F(960 - w/2 + (r()-.5)*40)}" y="${F(y)}" width="${F(w)}" height="${F(2+r()*3)}" rx="2" fill="${i % 3 ? "#ffcf7a" : "#ff8f6b"}" opacity="${F(.75 - i*.014)}"/>`; }
-  for(let i = 0; i < 5; i++){ const x = 1250 + r()*400, y = 360 + r()*140, s = .6 + r()*.6; b += `<path d="M${F(x)} ${F(y)} q${F(9*s)} ${F(-8*s)} ${F(18*s)} 0 q${F(9*s)} ${F(-8*s)} ${F(18*s)} 0" fill="none" stroke="#2a0d3a" stroke-width="3" stroke-linecap="round"/>`; }
-  return svgDoc(defs, b);
-}
-function wpSummer(){
-  const r = rng(9); let b = "";
-  const defs = lg("sky", [[0,"#1a5fd6"],[.5,"#4f9ef7"],[.82,"#b6dcff"],[1,"#e6f4ff"]]) + rg("glare", [[0,"#fff",.85],[1,"#fff",0]])
-    + lg("f1", [[0,"#8fd16a"],[1,"#5fae45"]]) + lg("f2", [[0,"#5aa83f"],[1,"#3f8a2f"]]);
-  b += `<rect width="1920" height="1080" fill="url(#sky)"/><circle cx="1700" cy="80" r="420" fill="url(#glare)"/>`;
-  const cloud = (cx, cy, s) => {
-    const pts = Array.from({length:46}, () => { const t = r(); return [cx + (r()-.5)*620*s, cy - Math.pow(r(), .8)*300*s*(1 - Math.abs(t-.5)), (40 + r()*110)*s]; });
-    b += `<g>${pts.map(([x,y,rr]) => `<circle cx="${F(x)}" cy="${F(y+14*s)}" r="${F(rr)}" fill="#bcd3ee"/>`).join("")}${pts.map(([x,y,rr]) => `<circle cx="${F(x)}" cy="${F(y)}" r="${F(rr)}" fill="#fff"/>`).join("")}</g>`;
-  };
-  cloud(560, 640, 1.25); cloud(1480, 560, 1); cloud(1120, 720, .6);
-  b += `<path d="M0 790 Q300 740 640 770 T1300 760 T1920 770 V1080 H0Z" fill="#8bb3d8"/>`;
-  b += `<path d="M0 820 Q480 780 960 815 T1920 800 V1080 H0Z" fill="url(#f1)"/>`;
-  b += `<path d="M0 920 Q600 880 1200 925 T1920 900 V1080 H0Z" fill="url(#f2)"/>`;
-  for(let i = 0; i < 260; i++){ const x = r()*1920, y = 930 + r()*150; b += `<path d="M${F(x)} ${F(y)} l${F((r()-.5)*8)} ${F(-10-r()*16)}" stroke="#2f7524" stroke-width="2" opacity=".6" stroke-linecap="round"/>`; }
-  const pole = (x, top) => { b += `<rect x="${x-7}" y="${top}" width="14" height="${1000-top}" fill="#2d2f3f"/><rect x="${x-70}" y="${top+40}" width="140" height="10" rx="3" fill="#2d2f3f"/><rect x="${x-50}" y="${top+80}" width="100" height="8" rx="3" fill="#2d2f3f"/>${[-60,-20,20,60].map(o => `<rect x="${x+o-3}" y="${top+30}" width="6" height="12" fill="#3d4052"/>`).join("")}`; };
-  pole(1560, 360); pole(1040, 520);
-  [-60,-20,20,60].forEach(o => {
-    b += `<path d="M${1560+o} 400 Q${1300+o*.8} 520 ${1040+o*.6} 560" fill="none" stroke="#2d2f3f" stroke-width="2"/>`;
-    b += `<path d="M${1560+o} 400 Q${1760+o} 470 1960 ${430+o*.4}" fill="none" stroke="#2d2f3f" stroke-width="2"/>`;
-    b += `<path d="M${1040+o*.6} 560 Q${700+o} 690 -40 ${700+o*.3}" fill="none" stroke="#2d2f3f" stroke-width="2"/>`;
-  });
-  return svgDoc(defs, b);
-}
-function wpStarry(){
-  const r = rng(31); let b = "";
-  const defs = lg("sky", [[0,"#02040e"],[.5,"#0a1b3e"],[.8,"#134b68"],[1,"#2b8a88"]]) + rg("band", [[0,"#c9b8ff",.5],[.5,"#7d8cff",.18],[1,"#7d8cff",0]])
-    + lg("shoot", [[0,"#fff",0],[1,"#fff",.95]], 1, 0)
-    + `<filter id="soft"><feGaussianBlur stdDeviation="30"/></filter><filter id="glow2" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
-  b += `<rect width="1920" height="1080" fill="url(#sky)"/>`;
-  b += `<g transform="rotate(-24 960 480)"><ellipse cx="960" cy="480" rx="1250" ry="170" fill="url(#band)" filter="url(#soft)"/>`;
-  for(let i = 0; i < 650; i++){ const g = (r()+r()+r()-1.5)/1.5; b += `<circle cx="${F(r()*2400-240)}" cy="${F(480+g*170)}" r="${F(.5+r()*1.2)}" fill="#fff" opacity="${F(.3+r()*.7)}"/>`; }
-  b += `</g>`;
-  for(let i = 0; i < 380; i++) b += `<circle cx="${F(r()*1920)}" cy="${F(r()*820)}" r="${F(.5+r()*1.5)}" fill="${r() < .15 ? "#bfe3ff" : "#fff"}" opacity="${F(.3+r()*.7)}"/>`;
-  for(let i = 0; i < 3; i++){ const x = 300 + r()*1200, y = 100 + r()*250, l = 160 + r()*160; b += `<line x1="${F(x)}" y1="${F(y)}" x2="${F(x+l)}" y2="${F(y+l*.42)}" stroke="url(#shoot)" stroke-width="2.2" stroke-linecap="round"/>`; }
-  b += `<path d="M0 905 Q420 770 960 840 T1920 815 V1080 H0Z" fill="#071226"/><path d="M0 980 Q700 900 1300 960 T1920 950 V1080 H0Z" fill="#040a17"/>`;
-  b += `<path d="M1335 845 C1338 800 1332 770 1340 735" stroke="#040a17" stroke-width="12" fill="none" stroke-linecap="round"/>`;
-  for(let i = 0; i < 30; i++){ const a = r()*Math.PI*2, d = r()*70; b += `<circle cx="${F(1340+Math.cos(a)*d*1.2)}" cy="${F(705+Math.sin(a)*d*.7)}" r="${F(20+r()*26)}" fill="#040a17"/>`; }
-  for(let i = 0; i < 26; i++) b += `<circle cx="${F(r()*1920)}" cy="${F(860+r()*190)}" r="${F(1.5+r()*2)}" fill="#fff6a8" filter="url(#glow2)" opacity="${F(.5+r()*.5)}"/>`;
-  return svgDoc(defs, b);
-}
+const SITE_BASE = `https://cdn.jsdelivr.net/gh/${CONFIG.site.user}/${CONFIG.site.repo}@${CONFIG.site.branch}/`;
+// testing on your own computer: load images from the local folder instead of jsDelivr
+const PAGE_URL = (() => { try{ return location.href.startsWith("about:") ? parent.location.href : location.href; }catch{ return location.href; } })();
+const LOCAL = /^https?:\/\/(localhost|127\.0\.0\.1)(:|\/)/.test(PAGE_URL);
+const ASSET = path => LOCAL ? new URL(path, PAGE_URL).href : SITE_BASE + path;
 const WALLS = [
-  { id:"sakura", name:"Sakura",       make:wpSakura, accent:"#ff6fa5", mode:"light" },
-  { id:"neon",   name:"Neon City",    make:wpNeon,   accent:"#bf5af2", mode:"dark"  },
-  { id:"sunset", name:"Sunset Sea",   make:wpSunset, accent:"#ff9f0a", mode:"dark"  },
-  { id:"summer", name:"Summer Sky",   make:wpSummer, accent:"#0a84ff", mode:"light" },
-  { id:"starry", name:"Starry Hill",  make:wpStarry, accent:"#64d2ff", mode:"dark"  },
+  { id:"blossom",   name:"Blossom",   src:"wallpapers/blossom.jpg",   accent:"#ff7eb6", mode:"dark"  },
+  { id:"chrome",    name:"Chrome",    src:"wallpapers/chrome.jpg",    accent:"#a1a1aa", mode:"dark"  },
+  { id:"waterfall", name:"Waterfall", src:"wallpapers/waterfall.jpg", accent:"#32ade6", mode:"light" },
 ];
-const wallCache = {};
+const F = n => Math.round(n * 10) / 10;
+// single quotes inside url() so this can sit inside a double-quoted style="" attribute
 function wallUrl(id){
   const w = WALLS.find(x => x.id === id);
-  // single quotes inside url() so this can sit inside a double-quoted style="" attribute
-  if(w) return wallCache[id] ||= `url('data:image/svg+xml;charset=utf-8,${encodeURIComponent(w.make()).replace(/'/g, "%27")}')`;
+  if(w) return `url('${ASSET(w.src)}')`;
   const c = customWalls.find(x => x.id === id);
-  return c ? `url('${c.src.replace(/'/g, "%27").replace(/"/g, "%22")}')` : wallUrl("sakura");
+  return c ? `url('${c.src.replace(/'/g, "%27").replace(/"/g, "%22")}')` : wallUrl(WALLS[0].id);
 }
 const wallInfo = id => WALLS.find(x => x.id === id) || { accent:"#0a84ff", mode:"dark" };
 const ACCENTS = { blue:"#0a84ff", purple:"#bf5af2", pink:"#ff375f", red:"#ff453a", orange:"#ff9f0a", yellow:"#ffd60a", green:"#30d158", graphite:"#8e8e93" };
 
 function applyLook(){
+  if(!WALLS.some(x => x.id === prefs.wall) && !customWalls.some(x => x.id === prefs.wall)) prefs.wall = WALLS[0].id;
   const w = $("#wall"), next = wallUrl(prefs.wall);
   if(w.dataset.bg !== prefs.wall){
     if(w.dataset.bg){ const old = w.cloneNode(); old.removeAttribute("id"); w.after(old); requestAnimationFrame(() => { old.style.opacity = 0; setTimeout(() => old.remove(), 700); }); }
@@ -827,15 +714,20 @@ const mono = t => {
   if(/^\d+$/.test(w[0] || "")) return w[0].slice(0, 3);          // "10 Minutes Til Dawn" -> "10"
   return (w.length > 1 ? w[0][0] + w[1][0] : t.slice(0, 2)).toUpperCase();
 };
+const TINTS = ["#4a5a7a","#6b4a6e","#3e6b5c","#7a5a3a","#55555f","#8a4646","#3f5f86","#62568a","#4f6e45","#7f6a33","#3d6f7a","#7a4f62"];
+const SHEET = { file:"icons.jpg", cols:20, rows:20 };   // icons.jpg: 128px game covers in a 20x20 grid; games.json "icon" = slot number
 function iconHTML(g){
-  const [a, b] = GRADS[hash(g.id) % GRADS.length];
-  const gl = g._glyph !== undefined ? g._glyph : (g._glyph = glyphFor(g));
   const logo = siteData.icons?.[g.id] || g.thumb;
-  return `<div class="ai" style="--a:${a};--b:${b}">${gl ? ico(gl) : `<span>${esc(mono(g.title))}</span>`}${
+  if(g.icon != null && !logo){
+    const c = g.icon % SHEET.cols, r = Math.floor(g.icon / SHEET.cols);
+    return `<div class="ai cover" style="background-image:url('${ASSET(SHEET.file)}');background-size:${SHEET.cols*100}% ${SHEET.rows*100}%;background-position:${F(c*100/(SHEET.cols-1))}% ${F(r*100/(SHEET.rows-1))}%"></div>`;
+  }
+  const gl = g._glyph !== undefined ? g._glyph : (g._glyph = glyphFor(g));
+  return `<div class="ai" style="--a:${TINTS[hash(g.id) % TINTS.length]}">${gl ? ico(gl) : `<span>${esc(mono(g.title))}</span>`}${
     logo ? `<img src="${esc(logo)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : ""}</div>`;
 }
 const appIcon = (glyph, a, b) => `<div class="ai" style="--a:${a};--b:${b}">${ico(glyph)}</div>`;
-const LAUNCH_ICON = `<div class="ai" style="--a:#3a3a46;--b:#17171d"><div class="launch-grid">${["#ff5f57","#febc2e","#28c840","#0a84ff","#bf5af2","#ff375f","#64d2ff","#30d158","#ff9f0a"].map(c => `<i style="background:${c}"></i>`).join("")}</div></div>`;
+const LAUNCH_ICON = `<div class="ai" style="--a:#2c2c30"><div class="launch-grid">${["#ff5f57","#febc2e","#28c840","#0a84ff","#bf5af2","#ff375f","#64d2ff","#30d158","#ff9f0a"].map(c => `<i style="background:${c}"></i>`).join("")}</div></div>`;
 
 /* =====================================================================
    GAMES DATA
@@ -849,12 +741,13 @@ const prettify = s => {
 function normalize(g){
   if(typeof g === "string") g = { path: g };
   const id = g.id || g.path.replace(/\/index\.html?$/i, "").split("/").pop().replace(/\.html?$/i, "");
-  return { id, title: g.title || prettify(id), path: g.path, thumb: g.thumb || null, tags: g.tags || [] };
+  return { id, title: g.title || prettify(id), path: g.path, thumb: g.thumb || null, icon: Number.isInteger(g.icon) ? g.icon : null, tags: g.tags || [] };
 }
 async function loadGames(){
   if(CONFIG.list){
     try{
-      const r = await fetch(CONFIG.list, {cache:"no-cache"});
+      const url = LOCAL && CONFIG.list.startsWith(SITE_BASE) ? ASSET(CONFIG.list.slice(SITE_BASE.length)) : CONFIG.list;
+      const r = await fetch(url, {cache:"no-cache"});
       if(r.ok){ const list = await r.json(); if(Array.isArray(list) && list.length) return list.map(normalize); }
     }catch{}
   }
@@ -1105,7 +998,7 @@ function showLogin(mode){
   $("#lkWalls").hidden = mode !== "new";
   if(mode === "new"){
     $("#lkForm").innerHTML = `<div class="lk-field" id="lkField"><input id="lkIn" maxlength="20" placeholder="Enter your name" spellcheck="false" autocapitalize="words"><button class="go" title="Continue">${ARROW}</button></div>`;
-    $("#lkHint").textContent = "Your name is saved in this browser. No password needed.";
+    $("#lkHint").textContent = "Saved in this browser only";
     $("#lkWalls").innerHTML = WALLS.map(w => `<button type="button" data-w="${w.id}" title="${w.name}" class="${prefs.wall === w.id ? "on" : ""}" style="background-image:${wallUrl(w.id)}"></button>`).join("");
   } else {
     $("#lkForm").innerHTML = `<button class="lk-field enter" id="lkField" style="width:100%"><span>Press Enter to log in</span><span class="go">${ARROW}</span></button>`;
@@ -1123,7 +1016,7 @@ $("#lkForm").addEventListener("submit", e => {
     const isNew = !user;
     user = { name, created: user?.created || Date.now(), avatar: "" };
     store.set("user", user);
-    enterDesktop(isNew ? `Welcome, ${name}` : `Hi, ${name}`);
+    enterDesktop(isNew ? `Welcome, ${name}` : null);
   } else enterDesktop();
 });
 let desktopReady = false;
@@ -1179,10 +1072,9 @@ function renderDock(){
   const running = id => isOpen(id) || !!W(id)?.classList.contains("minimized");
   const items = [
     { id:"games", label:"Games", icon:LAUNCH_ICON, run:running("games") },
-    { id:"fav", label:"Favorites", icon:appIcon("star", "#ffd60a", "#ff9f0a") },
-    { id:"links", label:"Links", icon:appIcon("link", "#64d2ff", "#0a5fff"), run:running("links") },
-    { id:"random", label:"Random Game", icon:appIcon("dice", "#bf5af2", "#5e2bd9") },
-    { id:"settings", label:"System Settings", icon:appIcon("gear", "#a1a1aa", "#4b4b55"), run:running("settings") },
+    { id:"fav", label:"Favorites", icon:appIcon("star", "#ff9f0a") },
+    { id:"links", label:"Links", icon:appIcon("link", "#0a84ff"), run:running("links") },
+    { id:"settings", label:"System Settings", icon:appIcon("gear", "#8e8e93"), run:running("settings") },
   ];
   if(running("admin")) items.push({ id:"admin", label:"Admin", icon:appIcon("term", "#3a3a3c", "#0c0c0e"), run:true });
   const gamesIn = [];
@@ -1220,7 +1112,7 @@ $("#dock").addEventListener("mouseenter", () => document.body.classList.add("doc
 /* =====================================================================
    GAMES WINDOW
    ===================================================================== */
-const GL = { view:"all", q:"", sort: store.get("sort", "name"), shown:120 };
+const GL = { view:"all", q:"", sort: store.get("sort2", "featured"), shown:120 };
 const VIEW_TITLE = { all:"All Games", fav:"Favorites", recent:"Recently Played" };
 function showGames(view){ GL.view = view; GL.shown = 120; openWin("games"); renderGames(); $("#glScroll").scrollTop = 0; }
 function visibleGames(){
@@ -1230,7 +1122,8 @@ function visibleGames(){
   if(GL.q){ const q = GL.q.toLowerCase().replace(/\s+/g, ""); list = list.filter(g => g.title.toLowerCase().replace(/\s+/g, "").includes(q) || g.id.toLowerCase().includes(q)); }
   if(GL.view !== "recent"){
     list = [...list];
-    if(GL.sort === "name") list.sort((a, b) => a.title.localeCompare(b.title));
+    if(GL.sort === "featured") list.sort((a, b) => (a.icon == null) - (b.icon == null) || a.title.localeCompare(b.title));
+    else if(GL.sort === "name") list.sort((a, b) => a.title.localeCompare(b.title));
     else if(GL.sort === "played") list.sort((a, b) => (plays[b.id]||0) - (plays[a.id]||0) || a.title.localeCompare(b.title));
     else if(GL.sort === "recent"){ const idx = id => { const i = recent.indexOf(id); return i < 0 ? 1e9 : i; }; list.sort((a, b) => idx(a.id) - idx(b.id) || a.title.localeCompare(b.title)); }
   }
@@ -1283,7 +1176,7 @@ $("#w-games .side").addEventListener("click", e => {
   if(e.target.closest('[data-act="random"]')) randomGame();
 });
 $("#glSearch").addEventListener("input", e => { GL.q = e.target.value.trim(); GL.shown = 120; renderGames(); $("#glScroll").scrollTop = 0; });
-$("#glSort").addEventListener("change", e => { GL.sort = e.target.value; store.set("sort", GL.sort); GL.shown = 120; renderGames(); });
+$("#glSort").addEventListener("change", e => { GL.sort = e.target.value; store.set("sort2", GL.sort); GL.shown = 120; renderGames(); });
 function toggleFav(id){
   favs.has(id) ? favs.delete(id) : favs.add(id);
   store.set("favs", [...favs]);
@@ -1412,7 +1305,7 @@ function renderSettings(){
       <div class="help">Auto picks light or dark to suit each wallpaper.</div></div>`;
   } else if(setPane === "wallpaper"){
     B.innerHTML = `<div class="pane"><div class="bigwp" style="background-image:${wallUrl(prefs.wall)}"></div>
-      <div class="gtitle">Anime scenes</div>
+      <div class="gtitle">Wallpapers</div>
       <div class="wpgrid" style="margin-bottom:22px">${WALLS.map(w => `<div class="wp${prefs.wall === w.id ? " on" : ""}" data-wall="${w.id}"><div class="th" style="background-image:${wallUrl(w.id)}"></div>${w.name}</div>`).join("")}</div>
       <div class="gtitle">Your wallpapers</div>
       <div class="wpgrid">${customWalls.map(w => `<div class="wp${prefs.wall === w.id ? " on" : ""}" data-wall="${w.id}"><div class="th" style="background-image:${wallUrl(w.id)}"></div>${esc(w.name)}<span class="del" data-delwall="${w.id}" title="Remove">×</span></div>`).join("")}
@@ -1457,7 +1350,7 @@ $("#setBody").addEventListener("click", e => {
   const t = e.target;
   const m = t.closest("[data-mode]"); if(m){ prefs.mode = m.dataset.mode; savePrefs(); applyLook(); return renderSettings(); }
   const a = t.closest("[data-acc]"); if(a){ prefs.accent = a.dataset.acc; savePrefs(); applyLook(); return renderSettings(); }
-  const dw = t.closest("[data-delwall]"); if(dw){ e.stopPropagation(); customWalls = customWalls.filter(w => w.id !== dw.dataset.delwall); store.set("walls", customWalls); if(prefs.wall === dw.dataset.delwall){ prefs.wall = "sakura"; savePrefs(); applyLook(); } return renderSettings(); }
+  const dw = t.closest("[data-delwall]"); if(dw){ e.stopPropagation(); customWalls = customWalls.filter(w => w.id !== dw.dataset.delwall); store.set("walls", customWalls); if(prefs.wall === dw.dataset.delwall){ prefs.wall = WALLS[0].id; savePrefs(); applyLook(); } return renderSettings(); }
   const wp = t.closest("[data-wall]"); if(wp){ prefs.wall = wp.dataset.wall; savePrefs(); applyLook(); return renderSettings(); }
   const tg = t.closest("[data-tog]"); if(tg){ prefs[tg.dataset.tog] = !prefs[tg.dataset.tog]; savePrefs(); applyLook(); if(tg.dataset.tog === "mag") $$("#dock .di").forEach(d => d.style.setProperty("--s", 1)); return renderSettings(); }
   const cl = t.closest("[data-clear]"); if(cl){ if(!confirm(`Clear ${cl.dataset.clear === "favs" ? "favorites" : "recently played"}?`)) return;
